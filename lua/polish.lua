@@ -46,6 +46,24 @@ local function setup()
       end
     end,
   })
+
+  -- Persist selected colorscheme across restarts
+  local theme_file = vim.fn.stdpath "data" .. "/selected-theme.txt"
+
+  if vim.fn.filereadable(theme_file) == 1 then
+    local saved = vim.fn.readfile(theme_file)
+
+    if saved[1] and saved[1] ~= "" then pcall(vim.cmd.colorscheme, saved[1]) end
+  end
+
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup("PersistentColorscheme", {
+      clear = true,
+    }),
+    callback = function(args)
+      if args.match and args.match ~= "" then vim.fn.writefile({ args.match }, theme_file) end
+    end,
+  })
 end
 
 setup()

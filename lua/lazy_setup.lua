@@ -18,7 +18,7 @@ require("lazy").setup({
   rocks = {
     enabled = false,
   },
-  install = { colorscheme = { "astrotheme", "habamax" } },
+  install = { colorscheme = { "gruvbox", "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
   performance = {
     rtp = {
