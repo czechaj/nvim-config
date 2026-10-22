@@ -78,7 +78,26 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+        ["<Leader>e"] = {
+          function() vim.cmd "Neotree toggle" end,
+          desc = "Toggle Explorer",
+        },
+
+        ["<Leader>h"] = {
+          function()
+            -- Create a new unnamed buffer without deleting existing files
+            vim.cmd "enew"
+
+            -- Open dashboard in the current normal window
+            require("snacks").dashboard.open {
+              buf = vim.api.nvim_get_current_buf(),
+              win = vim.api.nvim_get_current_win(),
+            }
+          end,
+          desc = "Home",
+        },
       },
+
       v = {
         -- Custom visual mode mappings
         ["<C-r>"] = {
