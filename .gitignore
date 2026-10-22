@@ -1,0 +1,7 @@
+# Machine-specific overrides and editor output
+lua/config/local.lua
+*.log
+*.swp
+*.swo
+*.tmp
+.DS_Store
