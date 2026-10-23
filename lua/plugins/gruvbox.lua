@@ -20,6 +20,15 @@ return {
         SignColumn = { bg = "NONE" },
         CursorLineNr = { fg = "#fabd2f", bold = true },
         Visual = { bg = "#504945" },
+
+        -- Snacks Picker
+        SnacksPickerListCursorLine = {
+          bg = "#504945",
+          bold = true,
+        },
+        CursorLine = {
+          bg = "#3c3836",
+        },
       },
     },
   },
